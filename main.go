@@ -22,5 +22,5 @@ func main()  {
 }
 
 func getHealthz(c *gin.Context){
-	c.JSON(http.StatusOK, "OK")
+	c.JSON(http.StatusOK, "Ok")
 }
