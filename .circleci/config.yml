@@ -1,8 +1,6 @@
 version: 2.1
-executors:
-  podman-executor:
-    docker:
-      - image: quay.io/podman/podman:latest
+orbs:
+  podman: circleci/podman@1.0
 
 workflows:
   build-and-deploy:
@@ -11,7 +9,6 @@ workflows:
 
 jobs:
   run-me:
-    executor: podman-executor
     machine: true
     resource_class: ng0cth1nh/demo-server-1
     steps:
