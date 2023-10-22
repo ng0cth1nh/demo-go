@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  podman: circleci/podman@1.0
+  docker: circleci/docker@2.2.0
 
 workflows:
   build-and-deploy:
@@ -9,7 +9,8 @@ workflows:
 
 jobs:
   run-me:
-    machine: true
+    docker:
+      - image: quay.io/podman/podman:latest
     resource_class: ng0cth1nh/demo-server-1
     steps:
       - run:
