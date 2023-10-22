@@ -1,0 +1,24 @@
+version: 2.1
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - run-me
+
+jobs:
+  run-me:
+    machine: true
+    resource_class: ng0cth1nh/demo-server-1
+    steps:
+      - run:
+          name: Clone git repository
+          command: git clone https://github.com/ng0cth1nh/demo-go.git -b $CIRCLE_BRANCH .
+      - run:
+          name: Check podman
+          command: podman version
+      - run:
+          name: Build
+          command: podman build . -t docker-registry.chop.dev:5000/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BRANCH
+      - run:
+          name: Push to docker registry
+          command: podman push docker-registry.chop.dev:5000/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BRANCH
