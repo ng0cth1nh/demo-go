@@ -21,4 +21,4 @@ jobs:
           command: podman --cgroup-manager cgroupfs build . -t docker-registry.chop.dev:5000/demo-go:$CIRCLE_BRANCH
       - run:
           name: Push to docker registry
-          command: podman --cgroup-manager cgroupfs push http://docker-registry.chop.dev:5000/demo-go:$CIRCLE_BRANCH
+          command: podman --cgroup-manager cgroupfs push docker-registry.chop.dev:5000/demo-go:$CIRCLE_BRANCH
