@@ -18,7 +18,7 @@ jobs:
           command: podman version
       - run:
           name: Build
-          command: podman --cgroup-manager cgroupfs build . -t docker-registry.chop.dev:5000/demo-go:$CIRCLE_BRANCH
+          command: podman --cgroup-manager cgroupfs build . -t docker-registry.ng0cth1nh.dev:5000/demo-go:$CIRCLE_BRANCH
       - run:
           name: Push to docker registry
-          command: podman --cgroup-manager cgroupfs push docker-registry.chop.dev:5000/demo-go:$CIRCLE_BRANCH
+          command: podman --cgroup-manager cgroupfs push docker-registry.ng0cth1nh.dev:5000/demo-go:$CIRCLE_BRANCH
