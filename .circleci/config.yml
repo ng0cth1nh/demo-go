@@ -21,4 +21,4 @@ jobs:
           command: podman --cgroup-manager cgroupfs build . -t 34.41.178.221:5000/demo-go:$CIRCLE_BRANCH
       - run:
           name: Push to docker registry
-          command: podman --cgroup-manager cgroupfs push 34.41.178.221:5000/demo-go:$CIRCLE_BRANCH
+          command: podman --cgroup-manager cgroupfs push --tls-verify=false 34.41.178.221:5000/demo-go:$CIRCLE_BRANCH
